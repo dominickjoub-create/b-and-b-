@@ -7,11 +7,11 @@ Static HTML/CSS/JS — no build step, no dependencies. Deploys to Netlify or Ver
 
 ## Features
 
-- **Interactive hero** — floating service cards with pointer-driven parallax that animate in on load.
+- **Pixel-canvas hero** — animated pixel-ripple background, glass shimmer headline, glass CTA buttons, and a scrolling trust marquee (recreated in vanilla JS/CSS, no framework).
 - **WhatsApp booking** — visitor enters name, area and service; the button opens WhatsApp with the message pre-filled and ready to send. No backend required.
-- Services, Why-Us, animated stats, gallery, and a full contact footer.
-- Sticky nav with mobile drawer, scroll-reveal animations, floating WhatsApp button.
-- Fully responsive, accessible, and respects `prefers-reduced-motion`.
+- Services, Why-Us, animated stats, and a full contact footer.
+- Sticky nav — on mobile the logo is enlarged (left), with a "Book a Lesson" button kept in the header bar plus a slide-in drawer.
+- Fully responsive (mobile-first), accessible, and respects `prefers-reduced-motion` (static pixel field, no animation).
 
 ## Brand
 

@@ -76,37 +76,134 @@
     counters.forEach(function (el) { co.observe(el); });
   }
 
-  /* ---- Hero card parallax (pointer) ---- */
-  var cardWrap = document.getElementById('heroCards');
-  if (cardWrap && !reduceMotion && window.matchMedia('(min-width: 901px)').matches) {
-    var cards = cardWrap.querySelectorAll('.hcard');
-    var raf = null, tx = 0, ty = 0;
-    cardWrap.addEventListener('mousemove', function (ev) {
-      var r = cardWrap.getBoundingClientRect();
-      tx = (ev.clientX - r.left) / r.width - 0.5;
-      ty = (ev.clientY - r.top) / r.height - 0.5;
-      if (!raf) raf = requestAnimationFrame(apply);
-    });
-    cardWrap.addEventListener('mouseleave', function () {
-      tx = 0; ty = 0;
-      if (!raf) raf = requestAnimationFrame(apply);
-    });
-    function apply() {
-      raf = null;
-      cards.forEach(function (c) {
-        var d = parseFloat(c.getAttribute('data-depth')) || 0.06;
-        var mx = tx * d * 260;
-        var my = ty * d * 200;
-        var rot = tx * d * 40;
-        c.style.transform = 'translate3d(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px,0) rotateY(' + rot.toFixed(1) + 'deg)';
+  /* ---- Hero trust marquee ---- */
+  var TRUST = [
+    'Certified Instructors', 'Code 8 · 10 · 14', 'Learners Classes',
+    'Test Booking Help', 'Pick-up & Drop-off', 'Open 7 Days a Week',
+    'Affordable Packages'
+  ];
+  function buildMarquee(el) {
+    if (!el) return;
+    var html = '';
+    // duplicated set for a seamless -50% loop
+    for (var pass = 0; pass < 2; pass++) {
+      TRUST.forEach(function (t, i) {
+        var withB = t.replace('B&B', '<b>B&amp;B</b>');
+        html += '<span class="m-item">' + withB + '</span>';
+        html += '<span class="m-dot">◆</span>';
       });
     }
-    // subtle hover pop per-card
-    cards.forEach(function (c) {
-      c.addEventListener('mouseenter', function () { c.style.zIndex = 20; });
-      c.addEventListener('mouseleave', function () { c.style.zIndex = ''; });
-    });
+    el.innerHTML = html;
   }
+  buildMarquee(document.getElementById('trustTrackD'));
+  buildMarquee(document.getElementById('trustTrackM'));
+
+  /* ---- Hero pixel-ripple canvas ---- */
+  function initPixels() {
+    var canvas = document.getElementById('pixelCanvas');
+    if (!canvas) return;
+    var wrap = canvas.parentElement;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var GAP = 7;
+    var COLORS = ['#33436a', '#33436a', '#3d5486', '#c7d2e6', '#E11B22']; // muted navy + light + red accent
+    var pixels = [];
+    var animId = 0;
+    var lastFrame = performance.now();
+    var rand = function (min, max) { return Math.random() * (max - min) + min; };
+
+    function build() {
+      var rect = wrap.getBoundingClientRect();
+      var w = Math.floor(rect.width);
+      var h = Math.floor(rect.height);
+      if (w === 0 || h === 0) return;
+      // cap DPR-less pixel count on huge screens for perf
+      canvas.width = w; canvas.height = h;
+      canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+
+      pixels = [];
+      var cx = w / 2, cy = h / 2;
+      var speedBase = reduceMotion ? 0 : 0.03;
+      for (var x = 0; x < w; x += GAP) {
+        for (var y = 0; y < h; y += GAP) {
+          var color = COLORS[(Math.random() * COLORS.length) | 0];
+          var dx = x - cx, dy = y - cy;
+          var delay = reduceMotion ? 0 : Math.sqrt(dx * dx + dy * dy) * 0.65;
+          pixels.push({
+            x: x, y: y, color: color,
+            speed: rand(0.08, 0.4) * speedBase,
+            size: 0, sizeStep: rand(0.12, 0.28),
+            minSize: 0.5, maxSizeInt: 2, maxSize: rand(0.5, 2),
+            delay: delay, counter: 0,
+            counterStep: rand(1.8, 3.2) + (w + h) * 0.008,
+            isIdle: false, isReverse: false, isShimmer: false
+          });
+        }
+      }
+    }
+
+    function drawPixel(p) {
+      var offset = p.maxSizeInt * 0.5 - p.size * 0.5;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x + offset, p.y + offset, p.size, p.size);
+    }
+    function appear(p) {
+      p.isIdle = false;
+      if (p.counter <= p.delay) { p.counter += p.counterStep; return; }
+      if (p.size >= p.maxSize) p.isShimmer = true;
+      if (p.isShimmer) {
+        if (p.size >= p.maxSize) p.isReverse = true;
+        else if (p.size <= p.minSize) p.isReverse = false;
+        p.size += p.isReverse ? -p.speed : p.speed;
+      } else {
+        p.size += p.sizeStep;
+      }
+      drawPixel(p);
+    }
+
+    var frameInterval = 1000 / 60;
+    function loop() {
+      animId = requestAnimationFrame(loop);
+      var now = performance.now();
+      var elapsed = now - lastFrame;
+      if (elapsed < frameInterval) return;
+      lastFrame = now - (elapsed % frameInterval);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < pixels.length; i++) appear(pixels[i]);
+      if (reduceMotion) cancelAnimationFrame(animId);
+    }
+
+    build();
+    if (reduceMotion) {
+      // static field: draw each pixel once at full size, no animation
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var k = 0; k < pixels.length; k++) {
+        pixels[k].size = pixels[k].maxSize;
+        drawPixel(pixels[k]);
+      }
+      return;
+    }
+    loop();
+
+    var rt;
+    var ro = new ResizeObserver(function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { cancelAnimationFrame(animId); build(); lastFrame = performance.now(); loop(); }, 200);
+    });
+    ro.observe(wrap);
+
+    // pause when hero off-screen to save battery
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { if (!animId) { lastFrame = performance.now(); loop(); } }
+          else { cancelAnimationFrame(animId); animId = 0; }
+        });
+      }, { threshold: 0 }).observe(wrap);
+    }
+  }
+  initPixels();
 
   /* ---- WhatsApp booking form ---- */
   var form = document.getElementById('bookForm');
