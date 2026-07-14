@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B&amp;B Driving Academy | Learn. Practice. Pass. — Code 8, 10 &amp; 14 Lessons</title>
+  <meta name="description" content="B&amp;B Driving Academy — certified professional instructors for Code 8, 10 &amp; 14 driving lessons, learners classes and test bookings. Open 7 days a week. Book on WhatsApp today!" />
+  <meta name="theme-color" content="#14213D" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="B&amp;B Driving Academy — Drive with Confidence" />
+  <meta property="og:description" content="Certified instructors · Code 8, 10 &amp; 14 · Learners classes · Test bookings · Open 7 days a week." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/creative-confidence.jpeg" />
+
+  <link rel="icon" href="assets/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Announcement bar ===== -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item">✔ Open 7 Days a Week</span>
+      <span class="topbar__dot">·</span>
+      <span class="topbar__item">📍 Pick-up &amp; Drop-off Available</span>
+      <span class="topbar__dot">·</span>
+      <a class="topbar__item topbar__link" href="tel:+27837491860">📞 083 749 1860</a>
+    </div>
+  </div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__brand" aria-label="B&B Driving Academy home">
+        <img src="assets/logo.jpeg" alt="B&amp;B Driving Academy" class="nav__logo" />
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
+        <a href="#book" class="btn btn--sm btn--red nav__cta">Book a Lesson</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__glow hero__glow--red"></div>
+      <div class="hero__glow hero__glow--blue"></div>
+      <div class="hero__grid"></div>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow reveal">Learn. Practice. Pass.</span>
+        <h1 class="hero__title reveal">
+          Drive with <span class="txt-red">Confidence</span>
+        </h1>
+        <p class="hero__lead reveal">
+          Certified professional instructors for <strong>Code 8, 10 &amp; 14</strong> lessons,
+          learners classes and test bookings — right across your area, 7 days a week.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#book" class="btn btn--red btn--lg">
+            <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.16L2 22l4.96-1.6A9.9 9.9 0 1 0 12.04 2Zm5.5 14.06c-.24.66-1.4 1.28-1.94 1.32-.5.05-1.13.24-3.66-.77-3.08-1.24-5.05-4.4-5.2-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.24 1.06-2.55.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5-.14.18-.3.4-.44.53-.14.15-.29.3-.13.6.16.28.72 1.18 1.55 1.92 1.06.95 1.96 1.24 2.24 1.38.28.15.44.13.6-.08.16-.2.7-.8.88-1.08.18-.28.36-.23.6-.14.24.1 1.55.73 1.82.86.27.14.44.2.5.32.07.12.07.66-.17 1.32Z"/></svg>
+            Book on WhatsApp
+          </a>
+          <a href="#services" class="btn btn--ghost btn--lg">View Services</a>
+        </div>
+
+        <ul class="hero__proof reveal">
+          <li><strong>Code 8·10·14</strong><span>Licence classes</span></li>
+          <li><strong>7 Days</strong><span>Open weekly</span></li>
+          <li><strong>Certified</strong><span>Pro instructors</span></li>
+        </ul>
+      </div>
+
+      <!-- Interactive floating cards -->
+      <div class="hero__cards" id="heroCards" aria-label="Our services at a glance">
+        <article class="hcard hcard--1" data-depth="0.06">
+          <div class="hcard__icon" style="--c:var(--red)">🚗</div>
+          <h3>Driving Lessons</h3>
+          <p>Code 8, 10 &amp; 14 with dual-control cars.</p>
+          <a href="#services" class="hcard__link">Learn more →</a>
+        </article>
+        <article class="hcard hcard--2" data-depth="0.10">
+          <div class="hcard__icon" style="--c:var(--navy)">📖</div>
+          <h3>Learners Classes</h3>
+          <p>Nail your learner's test the first time.</p>
+          <a href="#services" class="hcard__link">Learn more →</a>
+        </article>
+        <article class="hcard hcard--3" data-depth="0.08">
+          <div class="hcard__icon" style="--c:var(--red)">📅</div>
+          <h3>Test Bookings</h3>
+          <p>We assist with booking your test date.</p>
+          <a href="#services" class="hcard__link">Learn more →</a>
+        </article>
+        <div class="hcard hcard--badge" data-depth="0.14" aria-hidden="true">
+          <span class="stars">★★★★★</span>
+          <strong>Quality Lessons,<br>Better Drivers</strong>
+          <em>Your success is our goal</em>
+        </div>
+      </div>
+    </div>
+
+    <a href="#services" class="hero__scroll" aria-label="Scroll to services">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== Marquee ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Learn Safely</span><i>◆</i><span>Drive Confidently</span><i>◆</i><span>Succeed with B&amp;B</span><i>◆</i>
+      <span>Learn Safely</span><i>◆</i><span>Drive Confidently</span><i>◆</i><span>Succeed with B&amp;B</span><i>◆</i>
+    </div>
+  </div>
+
+  <!-- ===== Services ===== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center">What We Offer</span>
+        <h2 class="section__title">Everything you need to get on the road</h2>
+        <p class="section__sub">From your first learner's class to a full licence — B&amp;B has you covered.</p>
+      </div>
+
+      <div class="services">
+        <article class="scard reveal">
+          <div class="scard__top"><span class="scard__ico">🚗</span><span class="scard__tag">Code 8 · 10 · 14</span></div>
+          <h3>Driving Lessons</h3>
+          <p>Structured lessons for light motor vehicles, trucks and heavy vehicles. Practical, patient instruction that builds real confidence behind the wheel.</p>
+          <ul class="scard__list">
+            <li>Code 8 — light motor vehicle</li>
+            <li>Code 10 — heavy vehicle</li>
+            <li>Code 14 — extra-heavy vehicle</li>
+          </ul>
+          <a href="#book" class="scard__cta">Book lessons →</a>
+        </article>
+
+        <article class="scard scard--feature reveal">
+          <div class="scard__top"><span class="scard__ico">📖</span><span class="scard__tag scard__tag--light">Most Popular</span></div>
+          <h3>Learners Classes</h3>
+          <p>Get exam-ready with focused learner's licence coaching — road signs, rules of the road and the K53 essentials, taught the simple way.</p>
+          <ul class="scard__list">
+            <li>Signs, rules &amp; controls</li>
+            <li>Practice questions &amp; mock tests</li>
+            <li>Learners packages available</li>
+          </ul>
+          <a href="#book" class="scard__cta">Start learning →</a>
+        </article>
+
+        <article class="scard reveal">
+          <div class="scard__top"><span class="scard__ico">📅</span><span class="scard__tag">Admin sorted</span></div>
+          <h3>Test Booking Assistance</h3>
+          <p>Skip the queues and confusion. We help you secure your learner's and driver's test dates so you can focus on passing.</p>
+          <ul class="scard__list">
+            <li>Learner's &amp; driver's test dates</li>
+            <li>Guidance on documents needed</li>
+            <li>Reminders so you never miss it</li>
+          </ul>
+          <a href="#book" class="scard__cta">Get assistance →</a>
+        </article>
+
+        <article class="scard reveal">
+          <div class="scard__top"><span class="scard__ico">🎓</span><span class="scard__tag">Best value</span></div>
+          <h3>Learners &amp; Lesson Packages</h3>
+          <p>Affordable bundled packages that combine lessons and learner's prep — the easiest, most cost-effective way to go from zero to licensed.</p>
+          <ul class="scard__list">
+            <li>Combined learner + driving deals</li>
+            <li>Flexible, affordable pricing</li>
+            <li>Pick-up &amp; drop-off included</li>
+          </ul>
+          <a href="#book" class="scard__cta">See packages →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why choose us ===== -->
+  <section class="section section--navy" id="why">
+    <div class="container why__inner">
+      <div class="why__copy reveal">
+        <span class="eyebrow eyebrow--light">Why B&amp;B</span>
+        <h2 class="section__title section__title--light">Your success is our goal</h2>
+        <p class="why__lead">We honour the hard work of every South African chasing independence. Our job is simple: get you licensed, safely and affordably.</p>
+        <a href="#book" class="btn btn--red btn--lg">Book your first lesson</a>
+      </div>
+      <ul class="why__grid">
+        <li class="why__item reveal"><span>🏅</span><div><strong>Certified Instructors</strong><p>Registered, professional and endlessly patient.</p></div></li>
+        <li class="why__item reveal"><span>💸</span><div><strong>Affordable Packages</strong><p>Honest pricing with real value for money.</p></div></li>
+        <li class="why__item reveal"><span>🚕</span><div><strong>Pick-up &amp; Drop-off</strong><p>We come to you — lessons that fit your day.</p></div></li>
+        <li class="why__item reveal"><span>📅</span><div><strong>Test Booking Help</strong><p>We handle the admin headaches for you.</p></div></li>
+        <li class="why__item reveal"><span>🗓️</span><div><strong>Open 7 Days a Week</strong><p>Weekends included — learn on your schedule.</p></div></li>
+        <li class="why__item reveal"><span>🇿🇦</span><div><strong>Proudly Local</strong><p>Driving your future forward, right here at home.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section class="stats">
+    <div class="container stats__inner">
+      <div class="stat reveal"><strong data-count="3">0</strong><span>Licence codes<br>(8 · 10 · 14)</span></div>
+      <div class="stat reveal"><strong data-count="7">0</strong><span>Days open<br>every week</span></div>
+      <div class="stat reveal"><strong data-count="100" data-suffix="%">0</strong><span>Focus on your<br>success</span></div>
+      <div class="stat reveal"><strong data-count="1">0</strong><span>Simple goal:<br>you, licensed</span></div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center">Gallery</span>
+        <h2 class="section__title">Drive with the academy that shows up</h2>
+        <p class="section__sub">A look at the B&amp;B brand you'll see on the road.</p>
+      </div>
+      <div class="gallery">
+        <figure class="gitem gitem--tall reveal"><img loading="lazy" src="assets/creative-confidence.jpeg" alt="B&B Driving Academy — Drive with Confidence campaign" /></figure>
+        <figure class="gitem reveal"><img loading="lazy" src="assets/creative-workers.jpeg" alt="B&B Driving Academy — Driving your future forward" /></figure>
+        <figure class="gitem gitem--brand reveal">
+          <img src="assets/logo.jpeg" alt="B&B Driving Academy logo" />
+          <figcaption>Learn Safely · Drive Confidently · Succeed with B&amp;B</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Booking (WhatsApp) ===== -->
+  <section class="section section--book" id="book">
+    <div class="container book__inner">
+      <div class="book__copy reveal">
+        <span class="eyebrow eyebrow--light">Book in 30 seconds</span>
+        <h2 class="section__title section__title--light">Book your appointment on WhatsApp</h2>
+        <p class="book__lead">Tell us your name, area and the service you want. Tap the button and it opens WhatsApp with your message ready to send — no forms, no fuss.</p>
+        <ul class="book__points">
+          <li>✔ Instant reply on WhatsApp</li>
+          <li>✔ We confirm your date &amp; pick-up</li>
+          <li>✔ Open 7 days a week</li>
+        </ul>
+        <div class="book__alt">
+          <a href="tel:+27837491860" class="book__altlink">📞 083 749 1860</a>
+          <a href="mailto:info@bandbdriving.co.za" class="book__altlink">✉ info@bandbdriving.co.za</a>
+        </div>
+      </div>
+
+      <form class="bookform reveal" id="bookForm" novalidate>
+        <div class="field">
+          <label for="bfName">Your name</label>
+          <input type="text" id="bfName" name="name" placeholder="e.g. Thabo Mokoena" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="bfArea">Your area</label>
+          <input type="text" id="bfArea" name="area" placeholder="e.g. Soweto, Johannesburg" autocomplete="address-level2" required />
+        </div>
+        <div class="field">
+          <label for="bfService">Service you want</label>
+          <select id="bfService" name="service" required>
+            <option value="" disabled selected>Choose a service…</option>
+            <option>Code 8 Driving Lessons</option>
+            <option>Code 10 Driving Lessons</option>
+            <option>Code 14 Driving Lessons</option>
+            <option>Learners Class</option>
+            <option>Learners Package</option>
+            <option>Combined Lesson + Learners Package</option>
+            <option>Test Booking Assistance</option>
+            <option>Not sure — please advise</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bfWhen">Preferred day/time <span class="opt">(optional)</span></label>
+          <input type="text" id="bfWhen" name="when" placeholder="e.g. Saturday mornings" />
+        </div>
+        <button type="submit" class="btn btn--red btn--lg btn--block">
+          <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.16L2 22l4.96-1.6A9.9 9.9 0 1 0 12.04 2Zm5.5 14.06c-.24.66-1.4 1.28-1.94 1.32-.5.05-1.13.24-3.66-.77-3.08-1.24-5.05-4.4-5.2-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.24 1.06-2.55.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5-.14.18-.3.4-.44.53-.14.15-.29.3-.13.6.16.28.72 1.18 1.55 1.92 1.06.95 1.96 1.24 2.24 1.38.28.15.44.13.6-.08.16-.2.7-.8.88-1.08.18-.28.36-.23.6-.14.24.1 1.55.73 1.82.86.27.14.44.2.5.32.07.12.07.66-.17 1.32Z"/></svg>
+          Send booking on WhatsApp
+        </button>
+        <p class="bookform__note" id="bfNote">You'll be redirected to WhatsApp to confirm.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Contact / Footer ===== -->
+  <footer class="footer" id="contact">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/logo.jpeg" alt="B&amp;B Driving Academy" class="footer__logo" />
+        <p>Learn. Practice. Pass. Certified Code 8, 10 &amp; 14 instruction, learners classes and test bookings — open 7 days a week.</p>
+        <div class="footer__socials">
+          <a href="https://wa.me/27837491860" aria-label="WhatsApp" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://facebook.com/BBDRIVNGACADEMY" aria-label="Facebook" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://instagram.com/BBDRIVNGACADEMY" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <a href="#services">Services</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#book">Book a Lesson</a>
+      </div>
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="tel:+27837491860">📞 083 749 1860</a>
+        <a href="https://wa.me/27837491860" target="_blank" rel="noopener">💬 WhatsApp us</a>
+        <a href="mailto:info@bandbdriving.co.za">✉ info@bandbdriving.co.za</a>
+        <a href="https://www.bandbdriving.co.za" target="_blank" rel="noopener">🌐 bandbdriving.co.za</a>
+      </div>
+      <div class="footer__col">
+        <h4>Hours</h4>
+        <p class="footer__hours">Monday – Sunday<br><strong>Open 7 days a week</strong><br>Flexible lesson times</p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© <span id="year"></span> B&amp;B Driving Academy. All rights reserved.</span>
+      <span>Driving your future forward 🇿🇦</span>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a href="https://wa.me/27837491860?text=Hi%20B%26B%20Driving%20Academy%2C%20I'd%20like%20to%20book%20a%20lesson." class="fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.16L2 22l4.96-1.6A9.9 9.9 0 1 0 12.04 2Zm5.5 14.06c-.24.66-1.4 1.28-1.94 1.32-.5.05-1.13.24-3.66-.77-3.08-1.24-5.05-4.4-5.2-4.6-.15-.2-1.24-1.65-1.24-3.15 0-1.5.78-2.24 1.06-2.55.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5-.14.18-.3.4-.44.53-.14.15-.29.3-.13.6.16.28.72 1.18 1.55 1.92 1.06.95 1.96 1.24 2.24 1.38.28.15.44.13.6-.08.16-.2.7-.8.88-1.08.18-.28.36-.23.6-.14.24.1 1.55.73 1.82.86.27.14.44.2.5.32.07.12.07.66-.17 1.32Z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
