@@ -22,7 +22,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{
   font-family:var(--sans);
   color:var(--ink);
@@ -48,7 +48,7 @@ h1,h2,h3,h4{font-family:var(--cond);line-height:1.02;letter-spacing:.5px;text-tr
 .btn .ico{width:20px;height:20px;fill:currentColor;flex:none}
 .btn--sm{--pad:10px 18px;font-size:.9rem}
 .btn--lg{--pad:17px 30px;font-size:1.05rem}
-.btn--block{width:100%}
+.btn--block{width:100%;white-space:normal;text-align:center}
 .btn--red{background:var(--red);color:#fff;box-shadow:var(--shadow-red)}
 .btn--red:hover{background:var(--red-dark);transform:translateY(-3px);box-shadow:0 22px 46px -12px rgba(225,27,34,.6)}
 .btn--ghost{background:transparent;color:var(--navy);border-color:var(--grey-200)}
@@ -91,9 +91,12 @@ h1,h2,h3,h4{font-family:var(--cond);line-height:1.02;letter-spacing:.5px;text-tr
   .nav__inner{padding:10px 18px}
   .nav__links{position:fixed;inset:0 0 auto auto;top:0;right:0;height:100dvh;width:min(80vw,320px);
     flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;
-    background:var(--navy);padding:40px 34px;transform:translateX(100%);transition:transform .4s var(--ease);
+    background:var(--navy);padding:40px 34px;
+    transform:translateX(100%);visibility:hidden;
+    transition:transform .4s var(--ease),visibility 0s linear .4s;
     box-shadow:-20px 0 60px -20px rgba(0,0,0,.5)}
-  .nav__links.open{transform:translateX(0)}
+  .nav__links.open{transform:translateX(0);visibility:visible;
+    transition:transform .4s var(--ease),visibility 0s}
   .nav__links a{color:#e7ecf7;font-size:1.4rem;font-family:var(--cond);text-transform:uppercase;width:100%;padding:8px 0}
   .nav__links a:not(.nav__cta):hover{color:#fff}
   .nav__links .nav__cta{display:none}     /* Book button lives in the header bar on mobile */
@@ -311,6 +314,7 @@ h1,h2,h3,h4{font-family:var(--cond);line-height:1.02;letter-spacing:.5px;text-tr
   radial-gradient(90% 120% at 0% 0%,#20325a,transparent 55%),
   linear-gradient(180deg,#101c37,var(--navy));color:#fff}
 .book__inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.book__inner>*{min-width:0}
 .book__lead{color:#c1cce3;font-size:1.08rem;margin-bottom:20px;max-width:440px}
 .book__points{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
 .book__points li{color:#dce4f3;font-weight:500}
